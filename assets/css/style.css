@@ -55,11 +55,11 @@
 }
 
 .linkedin {
-  color: #0077b5;
+  color: rgb(74, 49, 65);
 }
 
 .angellist {
-  color: grey;
+  color: rgb(74, 49, 65);
 }
 
 .icon-btn:hover {
@@ -68,15 +68,15 @@
 }
 
 .linkedin:hover {
-  background-color: #0077b5;
+  background-color: rgb(74, 49, 65);
 }
 
 .angellist:hover {
-  background-color: grey;
+  background-color: rgb(74, 49, 65);
 }
 
 .github:hover {
-  background-color: black;
+  background-color: rgb(74, 49, 65);
 }
 
 /* Buttons - Read Me, Contact Us */
@@ -85,7 +85,7 @@
   position: relative;
   padding: 11px 35px;
   background: #fff;
-  color: #00796b;
+  color: rgb(74, 49, 65);
   border: 2px solid #fff;
   font-weight: 600;
   font-size: 15px;
@@ -116,7 +116,7 @@
 }
 
 .contactme:hover{
-  color: #00796b;
+  color: rgb(74, 49, 65);
   background-color: white;
 }
 /* main body */
@@ -124,7 +124,7 @@
 /* body-color */
 
 body {
-  color: #333;
+  color: rgb(74, 49, 65);
   font-size: 18px;
 }
 
@@ -156,7 +156,7 @@ a {
 
 blockquote {
   border-left: 5px solid #795548;
-  color: #795548;
+  color: rgb(74, 49, 65);
   font-size: 125%;
   font-weight: 400;
   margin: 20px 0;
@@ -237,7 +237,7 @@ ul.side-nav li {
 
 ul.side-nav.fixed a {
   box-sizing: content-box;
-  color: rgb(16, 202, 56);
+  color: rgb(246, 154, 212);
   display: block;
   line-height: 100%;
   padding: 10px 0 12px;
@@ -275,7 +275,7 @@ ul.table-of-contents li:not(.logo) a.active, ul.table-of-contents li:not(.logo) 
 }
 
 ul.side-nav.fixed.table-of-contents li:not(.logo) a span, ul#slide-out li:not(.logo) a span {
-  color: #333 !important;
+  color: rgb(74, 49, 65) !important;
 }
 
 li.logo span {
@@ -320,7 +320,7 @@ h3 {
 } */
 
 #intro.section {
-  background: #a7ffeb repeat;
+  background: rgb(131, 84, 113) repeat;
   position: relative;
 }
 
@@ -348,7 +348,7 @@ h3 {
 }
 
 #intro.section .underline {
-  border-bottom: 5px solid #24305e;
+  border-bottom: 5px solid rgb(246, 154, 212);
 }
 
 #intro.section .teal {
@@ -383,8 +383,8 @@ h3 {
 
 .card li a {
   margin-right: 0;
-  color: #333;
-  border-bottom: 2px solid #ffab40;
+  color: rgb(74, 49, 65);
+  border-bottom: 2px solid rgb(74, 49, 65);
 }
 
 .card li a:hover {
@@ -428,7 +428,7 @@ h3 {
 
 .card-action span {
   font-size: 85%;
-  color: #666;
+  color: rgb(74, 49, 65);
 }
 
 .card ul {
@@ -442,7 +442,7 @@ h3 {
 }
 
 .card ul li li {
-  color: #666;
+  color: rgb(74, 49, 65);
   font-size: 13px;
 }
 
@@ -473,7 +473,7 @@ a.hoverline {
 } */
 
 a.hoverline:hover {
-  border-bottom: 3px solid #004d40 !important;
+  border-bottom: 3px solid rgb(246, 154, 212) !important;
 }
 
 #skills .card.large {
@@ -543,13 +543,13 @@ small {
 }
 
 .grey-text {
-  color: #666 !important;
+  color: rgb(74, 49, 65) !important;
 }
 
 /* main .teal-text */
 
 .teal-text {
-  color: #008073 !important;
+  color: rgb(246, 154, 212) !important;
 }
 
 /* .teal-text {
@@ -559,7 +559,7 @@ small {
 /* .teal */
 
 .teal {
-  background-color: #008073 !important;
+  background-color: rgb(246, 154, 212) !important;
 }
 
 /* .teal {
@@ -602,7 +602,7 @@ small {
     position: absolute;
   }
   nav a.button-collapse, nav a.button-collapse i {
-    color: #009688;
+    color: rgb(246, 154, 212);
     height: 56px;
     line-height: 56px;
   }
