@@ -329,6 +329,27 @@ decision-making.</li>
     <section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
+        <!-- Recent Projects Section -->
+        <div class="row">
+          <div class="col s12">
+            <h4 class="center-align teal-text">Recent Projects</h4>
+            <div id="recent-projects-container" class="row">
+              <!-- Dynamic content will be inserted here -->
+            </div>
+            <div class="center-align">
+              <button id="load-more-btn" class="btn waves-effect waves-light teal" style="display: none;">
+                Load More Projects
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Static Projects Section -->
+        <div class="row">
+          <div class="col s12">
+            <h4 class="center-align teal-text" style="margin-top: 40px;">Featured Projects</h4>
+          </div>
+        </div>
         <div class="row">
 
           <div class="col s12 m6 l4">
@@ -612,6 +633,145 @@ to execute actions by 24%</li>
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
       })
     })
+  </script>
+
+  <!-- Dynamic Projects JavaScript -->
+  <script>
+    // Array of recent projects data
+    const recentProjects = [
+      {
+        id: 1,
+        title: "ECE444 Portfolio Website",
+        description: "A responsive portfolio website built with HTML, CSS, and JavaScript featuring dynamic content loading",
+        image: "assets/img/website.jpg",
+        tools: ["HTML5", "CSS3", "JavaScript", "Materialize CSS", "Git"],
+        accomplishments: [
+          "Developed a responsive portfolio website using modern web technologies",
+          "Implemented dynamic content loading with JavaScript DOM manipulation",
+          "Integrated Google Analytics and Tag Manager for user tracking",
+          "Applied UX/UI best practices for optimal user experience"
+        ],
+        date: "2025-09-14"
+      },
+      {
+        id: 2,
+        title: "RentSafeTO Website Redesign",
+        description: "A user experience overhaul of the RentSafeTO website to improve accessibility and usability",
+        image: "assets/img/toronto.jpg.webp",
+        tools: ["Python", "Adobe Illustrator"],
+        accomplishments: [
+          "Collaborated closely with the RentSafeTO team to lead a comprehensive website overhaul, resulting in a streamlined presentation of critical information and an enhanced user experience",
+          "Garnered valuable feedback from a survey of 102 users, with 92% of respondents agreeing that the redesigned website significantly improved their comprehension of the data presented",
+          "Developed Python algorithms capable of generating concise textual summaries for building data, increasing information clarity and accessibility for stakeholders"
+        ],
+        date: "2022-04-30"
+      }
+    ];
+
+    // Variables to track which projects are currently displayed
+    let currentProjectIndex = 0;
+    const projectsPerLoad = 2;
+
+    // Function to create HTML for a single project
+    function createProjectHTML(project) {
+      const accomplishmentsHTML = project.accomplishments
+        .map(accomplishment => `<li>${accomplishment}</li>`)
+        .join('');
+
+      const toolsHTML = project.tools.join(', ');
+
+      return `
+        <div class="col s12 m6 l4 project-card" data-project-id="${project.id}">
+          <div class="card medium">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img alt="${project.title}" src="${project.image}" style="height: 100%; width: 100%" class="activator" />
+            </div>
+            <div class="card-content">
+              <span class="card-title activator teal-text hoverline">${project.title}<i
+                  class="mdi-navigation-more-vert right"></i></span>
+              <p>${project.description}</p>
+              <p><small class="grey-text">Date: ${new Date(project.date).toLocaleDateString()}</small></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text"><small>Accomplishments</small><i
+                  class="mdi-navigation-close right"></i></span>
+              <ul>
+                <li><b>Tools:</b> ${toolsHTML}</li>
+                ${accomplishmentsHTML}
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Function to load and display projects
+    function loadProjects(count = projectsPerLoad) {
+      const container = document.getElementById('recent-projects-container');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      
+      // Get the projects to display
+      const projectsToShow = recentProjects.slice(currentProjectIndex, currentProjectIndex + count);
+      
+      // Generate HTML for projects
+      projectsToShow.forEach(project => {
+        const projectHTML = createProjectHTML(project);
+        container.insertAdjacentHTML('beforeend', projectHTML);
+      });
+      
+      // Update the current index
+      currentProjectIndex += projectsToShow.length;
+      
+      // Show/hide load more button based on remaining projects
+      if (currentProjectIndex >= recentProjects.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+      }
+
+      // Reinitialize Materialize components for new cards
+      $('.card .card-image img.activator').off('click').on('click', function() {
+        $(this).closest('.card').find('.card-reveal').show();
+      });
+      
+      $('.card-reveal .card-title i').off('click').on('click', function() {
+        $(this).closest('.card-reveal').hide();
+      });
+    }
+
+    // Function to display only the latest project initially
+    function displayLatestProject() {
+      if (recentProjects.length > 0) {
+        loadProjects(1); // Load only the first (latest) project
+        currentProjectIndex = 1; // Set index to 1 since we loaded the first project
+        
+        // Show load more button if there are more projects
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        if (recentProjects.length > 1) {
+          loadMoreBtn.style.display = 'inline-block';
+        }
+      }
+    }
+
+    // Event listener for load more button
+    document.addEventListener('DOMContentLoaded', function() {
+      // Display the latest project on page load
+      displayLatestProject();
+      
+      // Add event listener to load more button
+      document.getElementById('load-more-btn').addEventListener('click', function() {
+        loadProjects(projectsPerLoad);
+        
+        // Smooth scroll to the newly loaded content
+        setTimeout(() => {
+          const newCards = document.querySelectorAll('.project-card');
+          const lastCard = newCards[newCards.length - projectsPerLoad];
+          if (lastCard) {
+            lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }, 100);
+      });
+    });
   </script>
 </body>
 
