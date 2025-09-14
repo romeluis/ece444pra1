@@ -10,3 +10,7 @@ this repo is a clone of [this repository](https://github.com/varadbhogayata/vara
 # Activity 2
 ![activity 2 repo](screenshots/activity22.png)
 ![activity 2 site](screenshots/activity21.png)
+
+# Activity 3
+![activity 3 repo](screenshots/activity32.png)
+![activity 3 site](screenshots/activity31.png)
