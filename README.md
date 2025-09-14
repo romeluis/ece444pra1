@@ -6,3 +6,7 @@ this repo is a clone of [this repository](https://github.com/varadbhogayata/vara
 
 # Activity 1
 ![activity 1 image](screenshots/activity1.png)
+
+# Activity 2
+![activity 2 repo](screenshots/activity22.png)
+![activity 2 site](screenshots/activity21.png)
