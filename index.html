@@ -728,15 +728,6 @@ to execute actions by 24%</li>
       } else {
         loadMoreBtn.style.display = 'inline-block';
       }
-
-      // Reinitialize Materialize components for new cards
-      $('.card .card-image img.activator').off('click').on('click', function() {
-        $(this).closest('.card').find('.card-reveal').show();
-      });
-      
-      $('.card-reveal .card-title i').off('click').on('click', function() {
-        $(this).closest('.card-reveal').hide();
-      });
     }
 
     // Function to display only the latest project initially
@@ -761,15 +752,6 @@ to execute actions by 24%</li>
       // Add event listener to load more button
       document.getElementById('load-more-btn').addEventListener('click', function() {
         loadProjects(projectsPerLoad);
-        
-        // Smooth scroll to the newly loaded content
-        setTimeout(() => {
-          const newCards = document.querySelectorAll('.project-card');
-          const lastCard = newCards[newCards.length - projectsPerLoad];
-          if (lastCard) {
-            lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        }, 100);
       });
     });
   </script>
